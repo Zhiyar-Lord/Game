@@ -10,7 +10,14 @@ public class GameWindow extends JFrame {
     public void init() {
         this.setResizable(false);
         this.setTitle("Farming Game");
+
+        GamePanel gamePanel = new GamePanel();
+        this.add(gamePanel);
+
+        this.pack();
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 }

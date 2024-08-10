@@ -18,8 +18,8 @@ public class GameThread implements Runnable {
     @Override
     public void run() {
         while (gameThread != null) {
-            System.out.println("Game loop is running");
+            gamePanel.update();
+            gamePanel.repaint();
         }
     }
-
 }

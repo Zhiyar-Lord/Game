@@ -1,0 +1,13 @@
+{
+  "graphName" : "farmgame",
+  "artifacts" : [ {
+    "id" : "com.farmgame:farmgame:jar",
+    "numericId" : 1,
+    "groupId" : "com.farmgame",
+    "artifactId" : "farmgame",
+    "version" : "1.0-SNAPSHOT",
+    "optional" : false,
+    "scopes" : [ "compile" ],
+    "types" : [ "jar" ]
+  } ]
+}

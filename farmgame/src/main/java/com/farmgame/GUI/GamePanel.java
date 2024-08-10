@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.plaf.DimensionUIResource;
 import java.awt.Color;
 
-public class GamePanel extends JPanel {
+public class GamePanel extends JPanel implements Runnable {
     // screen settings
     private final int OGtileSize = 16; // 16x16 tiles
     private final int tileScale = 3; // scale to 48x48
@@ -15,6 +15,8 @@ public class GamePanel extends JPanel {
     private final int screenWidth = tileSize * maxScreenCol; // 768 px
     private final int screenHeight = tileSize * maxScreenRow; // 567 px
 
+    Thread gameThread;
+
     public GamePanel() {
         init();
     }
@@ -24,6 +26,16 @@ public class GamePanel extends JPanel {
 
         this.setBackground(Color.black);
         this.setDoubleBuffered(true); // improved rendering perf
+    }
+
+    public void startGameThread() {
+        gameThread = new Thread(this);
+        gameThread.start();
+    }
+
+    @Override
+    public void run() {
+
     }
 
 }

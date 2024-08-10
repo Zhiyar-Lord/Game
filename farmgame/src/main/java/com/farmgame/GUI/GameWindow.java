@@ -2,6 +2,8 @@ package com.farmgame.GUI;
 
 import javax.swing.JFrame;
 
+import com.farmgame.GUI.GameThread.GameThread;
+
 public class GameWindow extends JFrame {
     public GameWindow() {
         this.init();
@@ -19,5 +21,8 @@ public class GameWindow extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+
+        GameThread gameThread = new GameThread(gamePanel);
+        gameThread.start();
     }
 }

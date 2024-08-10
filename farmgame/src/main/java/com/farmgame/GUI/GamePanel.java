@@ -47,7 +47,15 @@ public class GamePanel extends JPanel {
 
     // change player position
     public void update() {
-
+        if (keyH.getUpPressed() == true) {
+            playerY -= playerSpeed;
+        } else if (keyH.getDownPressed() == true) {
+            playerY += playerSpeed;
+        } else if (keyH.getLeftPressed() == true) {
+            playerX -= playerSpeed;
+        } else if (keyH.getRightPressed() == true) {
+            playerX += playerSpeed;
+        }
     }
 
     // paint player

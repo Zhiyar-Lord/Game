@@ -19,27 +19,23 @@ public class GameThread implements Runnable {
     @Override
     public void run() {
         double drawInterval = 1000000000 / fps; // 1 million nano sec = 1 sec -- 0.017 seconds
-        double nextDrawTime = System.nanoTime() + drawInterval;
+        double delta = 0;
+        long lastTime = System.nanoTime();
+        long currentTime;
 
         while (gameThread != null) {
             // restriction 60fps
-            gamePanel.update();
-            gamePanel.repaint();
+            currentTime = System.nanoTime();
+            delta += (currentTime - lastTime) / drawInterval;
 
-            try {
-                double remainingTime = nextDrawTime - System.nanoTime();
-                remainingTime = remainingTime / 1000000;
+            lastTime = currentTime;
 
-                // if the allocated time goes below 0 then dont need sleep
-                if (remainingTime < 0) {
-                    remainingTime = 0;
-                }
-
-                Thread.sleep((long) remainingTime);
-                nextDrawTime += drawInterval;
-            } catch (Exception e) {
-                System.out.println("draw interval error");
+            if (delta >= 1) {
+                gamePanel.update();
+                gamePanel.repaint();
+                delta--;
             }
+
         }
     }
 }

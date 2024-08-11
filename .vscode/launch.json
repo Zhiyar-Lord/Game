@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "main.java.com.ghoulstrike.gameinit.Main",
+            "projectName": "ghoulstrike"
+        },
+        {
+            "type": "java",
+            "name": "Debug Maven Project",
+            "request": "launch",
+            "mainClass": "com.ghoulstrike.gameinit.Main",
+            "projectName": "ghoulstrike",
+            "vmArgs": "-Dfile.encoding=UTF-8",
+            "classpath": [
+                "target/classes",
+                "src/main/resources"
+            ],
+            "args": ""
+        }
+    ]
+}
